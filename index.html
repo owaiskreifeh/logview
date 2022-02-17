@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log View</title>
+    <style>
+        video {
+            max-height: 30vh;
+        }
+
+        .log-view {
+            max-height: 50vh;
+            border: 1px solid red;
+            overflow: scroll;
+            background: #444
+        }
+
+        .info {
+            color: #aaaaaa;
+            display: block;
+        }
+
+        .error {
+            color: #ff7272;
+            display: block;
+
+        }
+
+        .warning {
+            color: #dbbd12;
+            display: block;
+        }
+
+        .debug {
+            color: #3adb12;
+            display: block;
+        }
+
+        .active {
+            background-color: black;
+            border: 2px solid coral;
+            width: fit-content;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Log view</h1>
+    <h2 id="info"></h2>
+
+    <div class="root">
+
+        <label for="txt-timeoffset">
+            <span>1: video - logs time offset</span>
+            <input id="txt-timeoffset" type="number" value="30" />
+
+        </label>
+
+        <label for="file-logtxt">
+            <span>2: Select a log file</span>
+            <input id="file-logtxt" type="file" />
+
+        </label>
+
+        <label for="file-video">
+            <span>3: Select a video</span>
+            <input id="file-video" type="file" />
+
+        </label>
+
+
+
+
+
+    </div>
+
+    <div class="video-view">
+        <video id="video" controls></video>
+        <div class="video-controls">
+            <button id="btn-seek-back">seek - 1</button>
+            <button id="btn-seek-forward">seek + 1</button>
+
+            <button id="btn-seek-next-log">seek next log</button>
+            <button id="btn-seek-prev-log">seek prev log</button>
+
+        </div>
+        <div class="">
+            currentTime = <span id="current-time"></span>
+        </div>
+    </div>
+
+    <div class="log-view">
+        <pre id="output"></pre>
+    </div>
+    <script src="./parser.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>
